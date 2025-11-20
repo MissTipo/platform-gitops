@@ -1,0 +1,28 @@
+# Kubernetes generic
+*.log
+*.tmp
+*.swp
+
+# Helm
+charts/
+tmp/
+helm-cache/
+helm-repo/
+*.tgz
+
+# Kustomize build output
+kustomize.out
+
+# Helmfile (if you use it)
+.helmfile/
+
+# Grafana backups or exported dashboards
+*.json.backup
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+

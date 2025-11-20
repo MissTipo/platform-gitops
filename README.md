@@ -1,6 +1,7 @@
 # platform-gitops
 
-GitOps repository containing the full Kubernetes platform stack.  
+This repository defines the entire Kubernetes platform as code, managed through GitOps.
+It contains cluster bootstrap configuration, platform services, security, policy, networking, and observability.
 ArgoCD watches this repository and continuously reconciles the cluster state.
 
 This repo manages:
@@ -23,29 +24,46 @@ This repo manages:
 
 ```
 platform-gitops/
-  argo/
-    install/
-    apps/
-  platform/
-    ingress/
-    cert-manager/
-    external-dns/
-    metrics-server/
-    autoscaling/
-    observability/
-    security/
-  secrets/
-  ci/
+├── bootstrap/
+│   ├── argocd/
+│   └── root-application.yaml
+├── clusters/
+│   ├── dev/
+│   ├── staging/
+│   └── prod/
+└── apps/
+    ├── observability/
+    ├── security/
+    ├── networking/
+    └── core/
 ```
+
+---
+
+## Responsibilities
+- Bootstrap ArgoCD using an App-of-Apps pattern.
+- Configure all cluster-wide services.
+- Define observability stack as code.
+- Apply security and policy controls.
+- Manage cluster networking components.
+- Operate all add-ons declaratively.
 
 ---
 
 ## GitOps Flow
 
-1. Terraform deploys the cluster and initial ArgoCD manifests.
-2. ArgoCD syncs the `argo/apps/app-of-apps.yaml`.
-3. App-of-Apps deploys all platform components.
-4. Each folder represents a service deployed declaratively with Kustomize overlays.
+1. Infra repo provisions cluster.
+2. ArgoCD is installed via `bootstrap/argocd/`.
+3. ArgoCD syncs `root-application.yaml`.
+4. All platform services are deployed from `apps/`.
+5. Each folder represents a service deployed declaratively with Kustomize overlays.
+
+---
+
+## Sync Manually
+```
+kubectl apply -f bootstrap/root-application.yaml
+```
 
 ---
 
@@ -60,7 +78,7 @@ platform-gitops/
 
 ## Purpose
 
-This repo aligns with Certified ArgoCD Associate (CAA) competencies, including:
+This repo aligns with Certified Argo Project Associate (CAPA) competencies, including:
 - AppProjects
 - RBAC
 - ApplicationSets
