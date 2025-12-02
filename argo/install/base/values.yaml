@@ -1,0 +1,21 @@
+global:
+  image:
+    tag: ""
+
+server:
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - argocd.example.com
+    paths:
+      - /
+    annotations:
+      kubernetes.io/ingress.class: nginx
+
+  config:
+    url: https://argocd.example.com
+
