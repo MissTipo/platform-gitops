@@ -1,0 +1,7 @@
+server:
+  ingress:
+    hosts:
+      - argocd.dev.example.com
+  config:
+    url: https://argocd.dev.example.com
+
