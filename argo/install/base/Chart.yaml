@@ -1,0 +1,5 @@
+apiVersion: v2
+name: argocd-install
+version: 0.1.0
+description: Helm wrapper for installing ArgoCD through GitOps
+type: application
