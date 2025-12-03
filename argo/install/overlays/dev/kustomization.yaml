@@ -1,9 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-resources:
-  - ../../base
-
-patchesStrategicMerge:
-  - values-dev.yaml
+helmCharts:
+  - name: argo-cd
+    repo: https://argoproj.github.io/argo-helm
+    version: 7.3.0
+    releaseName: argocd
+    valuesFile: values-dev.yaml
+    namespace: argocd
 
