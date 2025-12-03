@@ -9,7 +9,8 @@ spec:
     repoURL: https://github.com/MissTipo/platform-gitops
     targetRevision: main
     path: argo/install/overlays/dev
-    kustomize: {}
+    kustomize:
+      enableHelm: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
