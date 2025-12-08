@@ -1,11 +1,7 @@
-autoscalingGroups: []
-cloudProvider: "oci"
-image:
-  tag: latest
-
-rbac:
-  create: true
-
-serviceMonitor:
-  enabled: true
+autoDiscovery:
+  clusterName: "${CLUSTER_NAME}"
+  tags:
+    - key: k8s.io/cluster-autoscaler/enabled
+      value: "true"
+extraArgs: []
 
