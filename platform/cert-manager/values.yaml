@@ -1,0 +1,14 @@
+installCRDs: true
+replicaCount: 1
+extraArgs: []
+dns01:
+  oci:
+    tenancy: "${OCI_TENANCY_OCID}"
+    user: "${OCI_USER_OCID}"
+    fingerprint: "${OCI_FINGERPRINT}"
+    privateKeySecretRef:
+      name: oci-api-key
+      key: private_key
+    region: "af-johannesburg-1"
+    compartmentId: "${OCI_COMPARTMENT_OCID}"
+
