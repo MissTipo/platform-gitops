@@ -1,0 +1,17 @@
+provider: oci
+
+oci:
+  # Secret is created by CI/CD, only referenced here
+  credentialsSecret: external-dns-oci
+
+  region: ${OCI_REGION}
+
+  # Set your real domain when ready
+  domainFilters:
+    - "example.com"
+
+interval: "1m"
+policy: sync
+registry: txt
+txtOwnerId: "k8s"
+logLevel: info

@@ -1,0 +1,18 @@
+controller:
+  service:
+    loadBalancer:
+      # CI/CD fills these from infra outputs
+      id: ${OCI_LOAD_BALANCER_OCID}
+      subnetIds:
+        - ${OCI_SUBNET_OCID}
+
+  admissionWebhooks:
+    enabled: true
+
+  metrics:
+    enabled: true
+
+  watchIngressWithoutClass: true
+
+  replicaCount: 2
+

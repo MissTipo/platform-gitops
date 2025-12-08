@@ -1,0 +1,7 @@
+prometheus:
+  service:
+    type: LoadBalancer
+
+alertmanager:
+  enabled: true
+

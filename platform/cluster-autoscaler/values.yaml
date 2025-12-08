@@ -1,0 +1,11 @@
+autoscalingGroups: []
+cloudProvider: "oci"
+image:
+  tag: latest
+
+rbac:
+  create: true
+
+serviceMonitor:
+  enabled: true
+

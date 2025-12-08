@@ -1,0 +1,13 @@
+installCRDs: true
+
+webhook:
+  enabled: true
+
+certController:
+  enabled: true
+
+leaderElect: true
+
+serviceMonitor:
+  enabled: true
+

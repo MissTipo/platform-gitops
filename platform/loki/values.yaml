@@ -1,0 +1,10 @@
+loki:
+  auth_enabled: false
+
+ingester:
+  wal:
+    enabled: true
+
+storage:
+  type: filesystem
+
