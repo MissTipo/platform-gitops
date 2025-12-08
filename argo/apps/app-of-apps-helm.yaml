@@ -8,67 +8,16 @@ spec:
   source:
     repoURL: https://github.com/MissTipo/platform-gitops
     targetRevision: main
-    path: platform
+    path: argo/apps/platform
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  # Each child app is listed as a Helm chart or Kustomize folder
-  sources:
-    - path: ingress/helm
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: nginx-ingress
-    - path: cert-manager/helm
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: cert-manager
-    - path: external-dns/helm
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: external-dns
-    - path: metrics-server/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-    - path: prometheus/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: prometheus
-    - path: grafana/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: grafana
-    - path: loki/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: loki
-    - path: tempo/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: tempo
-    - path: cluster-autoscaler/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: cluster-autoscaler
-    - path: external-secrets/base
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-      helm:
-        releaseName: external-secrets
-    - path: gatekeeper/policies
-      repoURL: https://github.com/MissTipo/platform-gitops
-      targetRevision: main
-
+  
