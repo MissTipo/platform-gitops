@@ -8,7 +8,8 @@ spec:
   source:
     repoURL: https://github.com/MissTipo/platform-gitops
     targetRevision: main
-    path: argo/install/overlays/dev
+    path: argo/apps/platform/
+    # path: argo/install/overlays/dev
     kustomize:
       enableHelm: true
   destination:
